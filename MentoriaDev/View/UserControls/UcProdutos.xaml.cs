@@ -39,7 +39,7 @@ namespace MentoriaDev.View.UserControls
         {
             if(!ValidarProduto()) return;
 
-            if (UcProdutoVm.Altecao)
+            if (UcProdutoVm.Alteracao)
             {
                 AlterarProduto();
             } 
@@ -69,7 +69,7 @@ namespace MentoriaDev.View.UserControls
             UcProdutoVm.Nome = produto.Nome;
             UcProdutoVm.Valor = produto.Valor;
 
-            UcProdutoVm.Altecao = true;
+            UcProdutoVm.Alteracao = true;
         }
 
         private void AdicionarProduto()
@@ -92,7 +92,7 @@ namespace MentoriaDev.View.UserControls
         {
             UcProdutoVm.Nome = "";
             UcProdutoVm.Valor = 0;
-            UcProdutoVm.Altecao = false;
+            UcProdutoVm.Alteracao = false;
         }
 
         private bool ValidarProduto()

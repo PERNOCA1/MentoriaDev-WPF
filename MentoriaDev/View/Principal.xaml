@@ -31,30 +31,39 @@
 
             <Border Style="{StaticResource BrdMenu}" />
 
-            <Button Grid.Row="1" 
+            <Button Grid.Row="1"
+                    x:Name="BtnProdutos"
                     Content="Produtos"
                     BorderThickness="0"
-                    Style="{StaticResource BtnMenu}"/>
+                    Style="{StaticResource BtnMenu}"
+                    Click="BtnMenu_Click"/>
 
             <Border Grid.Row="1"  Style="{StaticResource BrdMenu}" />
 
-            <Button Grid.Row="2" 
+            <Button Grid.Row="2"
+                    x:Name="BtnClientes"
                     Content="Clientes" 
                     BorderThickness="0"
-                    Style="{StaticResource BtnMenu}"/>
+                    Style="{StaticResource BtnMenu}"
+                    Click="BtnMenu_Click"/>
 
             <Border Grid.Row="2" Style="{StaticResource BrdMenu}" />
 
             <Button Grid.Row="3" 
+                    x:Name="BtnPedido"
                     Content="Pedido"
                     BorderThickness="0"
-                    Style="{StaticResource BtnMenu}"/>
+                    Style="{StaticResource BtnMenu}"
+                    Click="BtnMenu_Click"/>
 
             <Border Grid.Row="3" Style="{StaticResource BrdMenu}" />
 
 
 
         </Grid>
-        <UserControls:UcProdutos Grid.Column="1"/>
+
+        <ContentControl Grid.Column="1" 
+                        x:Name="Conteudo"/>
+
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MentoriaDev.View.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,5 +24,32 @@ namespace MentoriaDev.View
         {
             InitializeComponent();
         }
+
+        private void BtnMenu_Click(object sender, RoutedEventArgs e)
+        {
+            InicializarUc(sender);
+        }
+
+        private void InicializarUc(object sender)
+        {
+            if(sender is Button btn)
+            {
+                switch (btn.Name)
+                {
+                    case nameof(BtnProdutos):
+                        Conteudo.Content = new UcProdutos();
+                        break;
+                    case nameof(BtnClientes):
+                        Conteudo.Content = new UcClientes();
+                        break;
+                    case nameof(BtnPedido):
+                        // Conteudo.Content = new UcPedido();
+                    default:
+                        break;
+                }
+            }
+        }
+
+        
     }
 }

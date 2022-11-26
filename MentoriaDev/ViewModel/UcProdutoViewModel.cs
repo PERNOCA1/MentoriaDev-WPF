@@ -32,14 +32,14 @@ namespace MentoriaDev.ViewModel
             }
         }
 
-        private bool _altecao;
-        public bool Altecao
+        private bool _alteracao;
+        public bool Alteracao
         {
-            get => _altecao;
+            get => _alteracao;
             set
             {
-                _altecao = value;
-                OnPropertyChanged(nameof(Altecao));
+                _alteracao = value;
+                OnPropertyChanged(nameof(Alteracao));
             }
         }
 
