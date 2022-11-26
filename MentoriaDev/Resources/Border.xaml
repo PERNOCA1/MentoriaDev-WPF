@@ -3,6 +3,17 @@
     <Style x:Key="BrdMenu" TargetType="Border">
         <Setter Property="BorderBrush" Value="Blue" />
         <Setter Property="BorderThickness" Value="0,0,0,1" />
-    </Style> 
-            
+    </Style>
+
+    <Style x:Key="BrdTituloTelas" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#032338" />
+        <Setter Property="Margin" Value="5,0,5,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+
+    <Style x:Key="BrdSeparadorItens" TargetType="Border">
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+    </Style>
+
 </ResourceDictionary>

@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="MentoriaDev.View.UserControls.UcProdutos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MentoriaDev.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#EBEBEB">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Content="Produtos" FontWeight="Bold" FontSize="28" Foreground="#032338" />
+
+        <Border Style="{StaticResource BrdTituloTelas}" />
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel>
+                <Label Content="Nome" />
+                <TextBox Text="{Binding Nome}" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2">
+                <Label Content="Valor" />
+                <TextBox x:Name="TxtValor" Text="{Binding Valor}" 
+                         PreviewTextInput="TxtValor_PreviewTextInput"/>
+            </StackPanel>
+
+            <Button Grid.Column="4" 
+                    x:Name="BtnAdicionar" Content="Adicionar" Background="Green" Foreground="White" HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" Margin="0,0,0,10"
+                    Height="25" Width="150"
+                    Click="BtnAdicionar_Click">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource BtnArredondado}">
+                        <Setter Property="Content" Value="Adicionar" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Alteracao}" Value="True">
+                                <Setter Property="Content" Value="Salvar" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </Grid>
+
+        <ItemsControl Grid.Row="2" Background="White" BorderBrush="Gray" BorderThickness="1" Margin="10"
+                      ItemsSource="{Binding ProdutosAdicionados}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="210"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Text="{Binding Nome}" />
+                        
+                        <TextBlock Grid.Column="1" Text="{Binding Valor, ConverterCulture=pt-BR, StringFormat=#\,##0.00}" />
+
+                        <StackPanel Grid.Column="2"
+                                        Orientation="Horizontal" Height="25" Margin="0,0,0,5">
+                        <Button x:Name="BtnAlterar"
+                                    Width="100" Content="Alterar" Tag="{Binding}"
+                                    Style="{StaticResource BtnArredondado}" Background="MidnightBlue" Foreground="White"
+                                    Click="BtnAlterar_Click" />
+
+                            <Button x:Name="BtnRemover"
+                                    Width="100" Margin="10,0,0,0" Content="Alterar"
+                                    Style="{StaticResource BtnArredondado}" Background="DarkRed" Foreground="White"/>
+                        </StackPanel>
+
+                        <Border Grid.ColumnSpan="3" Style="{StaticResource BrdSeparadorItens}" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            
+        </ItemsControl>
+        
+    </Grid>
+</UserControl>
