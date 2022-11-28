@@ -43,7 +43,7 @@ namespace MentoriaDev.View
                         Conteudo.Content = new UcClientes();
                         break;
                     case nameof(BtnPedido):
-                        // Conteudo.Content = new UcPedido();
+                        Conteudo.Content = new UcPedido();
                     default:
                         break;
                 }

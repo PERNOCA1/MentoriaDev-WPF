@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="MentoriaDev.View.UserControls.UcPedido"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MentoriaDev.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#EBEBEB">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Content="Pedido" FontWeight="Bold" FontSize="28" Foreground="#032338" />
+
+        <Border Style="{StaticResource BrdTituloTelas}" />
+
+        <Grid Grid.Row="1" Margin="10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Label Content="Cliente" />
+                    <ComboBox ItemsSource="{Binding ListaClientes}" DisplayMemberPath="Nome" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <Label Content="Pagamento" />
+                    <ComboBox ItemsSource="{Binding ListaPagamentos}" />
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="125" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <Label Content="Produto" />
+                    <ComboBox x:Name="CmbProduto" ItemsSource="{Binding ListaProdutos}" DisplayMemberPath="Nome"
+                              DropDownClosed="CmbProduto_DropDownClosed"/>
+                </StackPanel>
+
+                <StackPanel  Grid.Column="4">
+                    <Label Content="Valor Unit." />
+                    <TextBlock Text="{Binding ValorUnit, ConverterCulture=pt-BR, StringFormat=#\,##0.00}" 
+                               FontSize="15" />
+                </StackPanel>
+
+                <Button Grid.Column="6"
+                        x:Name="BtnAdionarItem" Style="{StaticResource BtnArredondado}" Content="Adicionar"
+                        Background="Green" Foreground="White" Height="25" VerticalAlignment="Bottom" Margin="0,0,0,10"
+                        Click="BtnAdionarItem_Click"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <ItemsControl BorderBrush="Gray" BorderThickness="1" Background="White"
+                          ItemsSource="{Binding ItensAdicionados}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="5" Height="25">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text="{Binding Nome}"/>
+
+                            <TextBlock Grid.Column="1" >
+                                <Run Text="{Binding Quantidade}" />
+                                <Run Text="UN" />
+                                <Run Text="x" />
+                                <Run Text="{Binding ValorUnit, ConverterCulture=pt-BR, StringFormat=#\,##0.00}" />
+                            </TextBlock>
+
+                            <TextBlock Grid.Column="2"
+                                       VerticalAlignment="Center"
+                                       Text="{Binding ValorTotalItem, ConverterCulture=pt-BR, StringFormat=#\,##0.00}"/>
+
+                            <Border Grid.ColumnSpan="3" Style="{StaticResource BrdSeparadorItens}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" >
+                <TextBlock Text="{Binding ValorTotalPedido, ConverterCulture=pt-BR, StringFormat=#\,##0.00}"
+                           FontSize="25" Margin="0,0,20,0" />
+
+                <Button Content="Finalizar Pedido"
+                        x:Name="BtnFinalizarPedido" Style="{StaticResource BtnArredondado}" Background="Green"
+                        Foreground="White" Height="25" Width="150" HorizontalAlignment="Right"
+                        Click="BtnFinalizarPedido_Click"/>
+            </StackPanel>
+            
+        </Grid>
+        
+    </Grid>
+</UserControl>
