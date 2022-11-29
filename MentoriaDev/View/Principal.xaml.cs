@@ -39,11 +39,15 @@ namespace MentoriaDev.View
                     case nameof(BtnProdutos):
                         Conteudo.Content = new UcProdutos();
                         break;
+
                     case nameof(BtnClientes):
                         Conteudo.Content = new UcClientes();
                         break;
+
                     case nameof(BtnPedido):
                         Conteudo.Content = new UcPedido();
+                        break;
+
                     default:
                         break;
                 }

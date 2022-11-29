@@ -61,7 +61,7 @@
                 <StackPanel  Grid.Column="4">
                     <Label Content="Valor Unit." />
                     <TextBlock Text="{Binding ValorUnit, ConverterCulture=pt-BR, StringFormat=#\,##0.00}" 
-                               FontSize="15" />
+                               FontSize="15" VerticalAlignment="Center"/>
                 </StackPanel>
 
                 <Button Grid.Column="6"

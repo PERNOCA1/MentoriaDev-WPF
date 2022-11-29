@@ -54,7 +54,7 @@
                     Content="Pedido"
                     BorderThickness="0"
                     Style="{StaticResource BtnMenu}"
-                    Click="BtnMenu_Click"/>
+                    Click="BtnMenu_Click" Cursor="Hand"/>
 
             <Border Grid.Row="3" Style="{StaticResource BrdMenu}" />
 

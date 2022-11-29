@@ -76,6 +76,7 @@ namespace MentoriaDev.View.UserControls
 
             UcPedidoVm.Quantidade = 1;
             UcPedidoVm.ItensAdicionados = new ObservableCollection<UcPedidoItemViewModel>();
+          
         }
 
         private void AdicionarItem()
@@ -88,6 +89,7 @@ namespace MentoriaDev.View.UserControls
                 Quantidade = UcPedidoVm.Quantidade,
                 ValorUnit = UcPedidoVm.ValorUnit,
                 ValorTotalItem = UcPedidoVm.Quantidade * UcPedidoVm.ValorUnit
+               
             };
 
             UcPedidoVm.ItensAdicionados.Add(itemVm);

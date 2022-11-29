@@ -9,7 +9,7 @@ namespace MentoriaDev.ViewModel
     public class UcPedidoItemViewModel
     {
         public string Nome { get; set; }
-        public string Quantidade { get; set; }
+        public decimal Quantidade { get; set; }
         public decimal ValorUnit { get; set; }
         public decimal ValorTotalItem { get; set; }
     }

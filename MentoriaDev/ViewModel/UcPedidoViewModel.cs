@@ -75,8 +75,8 @@ namespace MentoriaDev.ViewModel
             }
         }
 
-        private ObservableCollection<string> _itensAdicionados;
-        public ObservableCollection<string> ItensAdicionados
+        private ObservableCollection<UcPedidoItemViewModel> _itensAdicionados;
+        public ObservableCollection<UcPedidoItemViewModel> ItensAdicionados
         {
             get => _itensAdicionados;
             set
