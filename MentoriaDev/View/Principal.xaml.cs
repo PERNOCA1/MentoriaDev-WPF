@@ -1,4 +1,6 @@
 ﻿using MentoriaDev.View.UserControls;
+using MentoriaDevSti3.Data.Context;
+using MentoriaDevSti3.Data.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,30 @@ namespace MentoriaDev.View
         public Principal()
         {
             InitializeComponent();
+            Testes();
+        }
+
+        private void Testes()
+        {
+            using var context = new MentoriaDevSTI3Context();
+
+            //context.Database.EnsureCreated();
+
+            //     context.Clientes.Add(new Cliente 
+            //     {
+            //         Nome = "Tiago",
+            //         Cep = "17204222",
+            //         Cidade = "Jaú",
+            //         DataNascimento = DateTime.Now,
+            //         Endereco = "Rua sem saída",
+            //     });
+
+            
+            var cliente = context.Clientes.First(x => x.Id == 1);
+            
+            context.Clientes.Remove(cliente); 
+
+            context.SaveChanges();
         }
 
         private void BtnMenu_Click(object sender, RoutedEventArgs e)
