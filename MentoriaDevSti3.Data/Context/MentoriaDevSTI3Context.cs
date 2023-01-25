@@ -1,4 +1,5 @@
 ﻿using MentoriaDevSti3.Data.Entidades;
+using MentoriaDevSti3.Data.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,5 +27,23 @@ namespace MentoriaDevSti3.Data.Context
         public virtual DbSet<ItemPedido> ItensPedidos { get; set; }
         public virtual DbSet<Pedido> Pedidos { get; set; }
         public virtual DbSet<Produto> Produtos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ClienteMapping());
+            modelBuilder.ApplyConfiguration(new ItemPedidoMapping());
+            modelBuilder.ApplyConfiguration(new PedidoMapping());
+            modelBuilder.ApplyConfiguration(new ProdutoMapping());
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public void AplicarMigracoes()
+        {
+            if (Database.GetPendingMigrations().Any())
+            {
+                Database.Migrate();
+            }
+        }
     }
 }
